@@ -1,0 +1,21 @@
+{
+	"name": "AControlImageLink",
+	"version": "0.0.1",
+	"author": "Edward Chernenko",
+	"url": "https://www.mediawiki.org/wiki/Extension:AControlImageLink",
+	"license-name": "GPL-2.0+",
+	"type": "hook",
+	"AutoloadClasses": {
+		"AControlImageLinkHooks": "AControlImageLinkHooks.php"
+	},
+	"Hooks": {
+		"ImageBeforeProduceHTML": "AControlImageLinkHooks::onImageBeforeProduceHTML"
+	},
+	"config": {
+		"AControlImageLinkRestrictedExtensions": {
+			"value": [],
+			"description": "Array of file extensions to which restriction must be applied."
+		}
+	},
+	"manifest_version": 2
+}
