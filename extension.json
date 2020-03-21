@@ -3,10 +3,16 @@
 	"version": "0.0.1",
 	"author": "Edward Chernenko",
 	"url": "https://www.mediawiki.org/wiki/Extension:AControlImageLink",
+	"descriptionmsg": "acontrolimagelink-desc",
 	"license-name": "GPL-2.0+",
 	"type": "hook",
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
+	},
+	"MessagesDirs": {
+		"AControlImageLink": [
+			"i18n"
+		]
 	},
 	"AutoloadClasses": {
 		"AControlImageLinkHooks": "AControlImageLinkHooks.php"
