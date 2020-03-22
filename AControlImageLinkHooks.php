@@ -1,30 +1,41 @@
 <?php
 
-/*
-	Extension:AControlImageLink - MediaWiki extension.
-	Copyright (C) 2020 Edward Chernenko.
-
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-*/
+/**
+ * Extension:AControlImageLink - MediaWiki extension.
+ * Copyright (C) 2020 Edward Chernenko.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
 
 /**
-	@file
-	@brief Hooks of Extension:AControlImageLink.
-*/
+ * @file
+ * @brief Hooks of Extension:AControlImageLink.
+ */
 
 class AControlImageLinkHooks {
 
 	/**
 	 * @brief Prevent thumbnail from rendering if image has <accesscontrol> tag,
 	 * and the article that includes it either doesn't or has a different <accesscontrol> tag.
+	 * @param DummyLinker &$dummyLinker
+	 * @param Title &$title
+	 * @param File|bool &$file
+	 * @param array &$frameParams
+	 * @param array &$handlerParams
+	 * @param string|bool &$time
+	 * @param string|null &$result
+	 * @param \Parser $parser
+	 * @param string &$query
+	 * @param int|null &$widthOption
+	 * @return bool
 	 */
 	public static function onImageBeforeProduceHTML(
 		&$dummyLinker, Title &$title, &$file, array &$frameParams, array &$handlerParams,
