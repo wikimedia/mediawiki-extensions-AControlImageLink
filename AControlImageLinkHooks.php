@@ -17,13 +17,13 @@
 
 /**
  * @file
- * @brief Hooks of Extension:AControlImageLink.
+ * Hooks of Extension:AControlImageLink.
  */
 
 class AControlImageLinkHooks {
 
 	/**
-	 * @brief Prevent thumbnail from rendering if image has <accesscontrol> tag,
+	 * Prevent thumbnail from rendering if image has <accesscontrol> tag,
 	 * and the article that includes it either doesn't or has a different <accesscontrol> tag.
 	 * @param DummyLinker &$dummyLinker
 	 * @param Title &$title
