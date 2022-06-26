@@ -15,6 +15,8 @@
  * GNU General Public License for more details.
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @file
  * Hooks of Extension:AControlImageLink.
@@ -76,7 +78,12 @@ class AControlImageLinkHooks {
 	 * @return string|null Text inside <accesscontrol> tag.
 	 */
 	protected static function findAccessControlTag( Title $title ) {
-		$page = WikiPage::factory( $title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		} else {
+			$page = WikiPage::factory( $title );
+		}
 		$content = $page->getContent( Revision::RAW );
 		if ( !$content ) {
 			// Page doesn't exist.
