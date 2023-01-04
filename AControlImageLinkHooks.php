@@ -16,6 +16,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * @file
@@ -84,7 +85,7 @@ class AControlImageLinkHooks {
 		} else {
 			$page = WikiPage::factory( $title );
 		}
-		$content = $page->getContent( Revision::RAW );
+		$content = $page->getContent( RevisionRecord::RAW );
 		if ( !$content ) {
 			// Page doesn't exist.
 			return null;
