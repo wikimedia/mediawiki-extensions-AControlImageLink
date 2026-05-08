@@ -87,12 +87,12 @@ class AControlImageLinkHooks {
 			$page = WikiPage::factory( $title );
 		}
 		$content = $page->getContent( RevisionRecord::RAW );
-		if ( !$content ) {
-			// Page doesn't exist.
+		if ( !$content instanceof TextContent ) {
+			// Page doesn't exist or wrong content model
 			return null;
 		}
 
-		$text = $content->getNativeData();
+		$text = $content->getText();
 
 		$matches = false;
 		if ( !preg_match( '/<accesscontrol>(.*)<\/accesscontrol>/', $text, $matches ) ) {
